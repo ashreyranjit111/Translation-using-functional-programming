@@ -1,0 +1,101 @@
+Program(
+    Vector(
+        ManifestDecl(
+            Vector(
+                ManifestEntry(IdnDef("SIZE"), Some(IntExp(55))),
+                ManifestEntry(IdnDef("MASK"), Some(IntExp(268435455))),
+                ManifestEntry(IdnDef("MAGIC_1"), Some(IntExp(36984440))),
+                ManifestEntry(IdnDef("MAGIC_2"), Some(IntExp(87435137))))),
+        LetDecl(
+            Vector(
+                LetFnClause(
+                    IdnDef("rnd"),
+                    Vector(IdnDef("n")),
+                    ValofExp(
+                        Block(
+                            Vector(
+                                LetDecl(
+                                    Vector(
+                                        LetVarClause(
+                                            Vector(IdnDef("val")),
+                                            Vector(
+                                                AndExp(
+                                                    PlusExp(
+                                                        BinaryPlingExp(
+                                                            IdnExp(IdnUse("ranv")),
+                                                            IdnExp(IdnUse("rani"))),
+                                                        BinaryPlingExp(
+                                                            IdnExp(IdnUse("ranv")),
+                                                            IdnExp(IdnUse("ranj")))),
+                                                    IdnExp(IdnUse("MASK")))))))),
+                            Vector(
+                                AssignStmt(
+                                    Vector(
+                                        BinaryPlingExp(
+                                            IdnExp(IdnUse("ranv")),
+                                            IdnExp(IdnUse("rani")))),
+                                    Vector(IdnExp(IdnUse("val")))),
+                                AssignStmt(
+                                    Vector(IdnExp(IdnUse("rani"))),
+                                    Vector(
+                                        ModExp(
+                                            PlusExp(IdnExp(IdnUse("rani")), IntExp(1)),
+                                            IdnExp(IdnUse("SIZE"))))),
+                                AssignStmt(
+                                    Vector(IdnExp(IdnUse("ranj"))),
+                                    Vector(
+                                        ModExp(
+                                            PlusExp(IdnExp(IdnUse("ranj")), IntExp(1)),
+                                            IdnExp(IdnUse("SIZE"))))),
+                                ResultIsStmt(ModExp(IdnExp(IdnUse("val")), IdnExp(IdnUse("n")))))))),
+                LetFnClause(
+                    IdnDef("initrnd"),
+                    Vector(IdnDef("seed")),
+                    ValofExp(
+                        Block(
+                            Vector(
+                                LetDecl(
+                                    Vector(
+                                        LetVarClause(
+                                            Vector(IdnDef("a"), IdnDef("b")),
+                                            Vector(
+                                                PlusExp(
+                                                    IdnExp(IdnUse("MAGIC_1")),
+                                                    IdnExp(IdnUse("seed"))),
+                                                IdnExp(IdnUse("MAGIC_2"))))))),
+                            Vector(
+                                ForStmt(
+                                    IdnDef("i"),
+                                    IntExp(0),
+                                    MinusExp(IdnExp(IdnUse("SIZE")), IntExp(1)),
+                                    None,
+                                    Block(
+                                        Vector(
+                                            LetDecl(
+                                                Vector(
+                                                    LetVarClause(
+                                                        Vector(IdnDef("t")),
+                                                        Vector(
+                                                            AndExp(
+                                                                PlusExp(
+                                                                    IdnExp(IdnUse("a")),
+                                                                    IdnExp(IdnUse("b"))),
+                                                                IdnExp(IdnUse("MASK")))))))),
+                                        Vector(
+                                            AssignStmt(
+                                                Vector(IdnExp(IdnUse("a"))),
+                                                Vector(IdnExp(IdnUse("b")))),
+                                            AssignStmt(
+                                                Vector(IdnExp(IdnUse("b"))),
+                                                Vector(IdnExp(IdnUse("t")))),
+                                            AssignStmt(
+                                                Vector(
+                                                    BinaryPlingExp(
+                                                        IdnExp(IdnUse("ranv")),
+                                                        IdnExp(IdnUse("i")))),
+                                                Vector(IdnExp(IdnUse("t"))))))),
+                                AssignStmt(
+                                    Vector(IdnExp(IdnUse("rani")), IdnExp(IdnUse("ranj"))),
+                                    Vector(IntExp(0), IntExp(31))),
+                                ResultIsStmt(TrueExp()))))),
+                LetVecClause(IdnDef("ranv"), MinusExp(IdnExp(IdnUse("SIZE")), IntExp(1)))))))

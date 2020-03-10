@@ -1,0 +1,403 @@
+Program(
+    Vector(
+        LetDecl(
+            Vector(
+                LetProcClause(
+                    IdnDef("writed"),
+                    Vector(IdnDef("n"), IdnDef("d")),
+                    Block(
+                        Vector(
+                            LetDecl(
+                                Vector(
+                                    LetVecClause(IdnDef("t"), IntExp(30)),
+                                    LetVarClause(
+                                        Vector(IdnDef("i"), IdnDef("k")),
+                                        Vector(IntExp(0), NegExp(IdnExp(IdnUse("n")))))))),
+                        Vector(
+                            IfDoStmt(
+                                LessExp(IdnExp(IdnUse("n")), IntExp(0)),
+                                AssignStmt(
+                                    Vector(IdnExp(IdnUse("d")), IdnExp(IdnUse("k"))),
+                                    Vector(
+                                        MinusExp(IdnExp(IdnUse("d")), IntExp(1)),
+                                        IdnExp(IdnUse("n"))))),
+                            RepeatUntilStmt(
+                                AssignStmt(
+                                    Vector(
+                                        BinaryPlingExp(IdnExp(IdnUse("t")), IdnExp(IdnUse("i"))),
+                                        IdnExp(IdnUse("i")),
+                                        IdnExp(IdnUse("k"))),
+                                    Vector(
+                                        NegExp(ModExp(IdnExp(IdnUse("k")), IntExp(10))),
+                                        PlusExp(IdnExp(IdnUse("i")), IntExp(1)),
+                                        SlashExp(IdnExp(IdnUse("k")), IntExp(10)))),
+                                EqualExp(IdnExp(IdnUse("k")), IntExp(0))),
+                            ForStmt(
+                                IdnDef("j"),
+                                PlusExp(IdnExp(IdnUse("i")), IntExp(1)),
+                                IdnExp(IdnUse("d")),
+                                None,
+                                CallStmt(CallExp(IdnExp(IdnUse("wrch")), Vector(ChrExp(Vector(32)))))),
+                            IfDoStmt(
+                                LessExp(IdnExp(IdnUse("n")), IntExp(0)),
+                                CallStmt(CallExp(IdnExp(IdnUse("wrch")), Vector(ChrExp(Vector(45)))))),
+                            ForStmt(
+                                IdnDef("j"),
+                                MinusExp(IdnExp(IdnUse("i")), IntExp(1)),
+                                IntExp(0),
+                                Some(NegExp(IntExp(1))),
+                                CallStmt(
+                                    CallExp(
+                                        IdnExp(IdnUse("wrch")),
+                                        Vector(
+                                            PlusExp(
+                                                BinaryPlingExp(
+                                                    IdnExp(IdnUse("t")),
+                                                    IdnExp(IdnUse("j"))),
+                                                ChrExp(Vector(48)))))))))),
+                LetProcClause(
+                    IdnDef("writeu"),
+                    Vector(IdnDef("n"), IdnDef("d")),
+                    Block(
+                        Vector(
+                            LetDecl(
+                                Vector(
+                                    LetVarClause(
+                                        Vector(IdnDef("m")),
+                                        Vector(
+                                            SlashExp(
+                                                ShiftRightExp(IdnExp(IdnUse("n")), IntExp(1)),
+                                                IntExp(5))))))),
+                        Vector(
+                            UnlessDoStmt(
+                                EqualExp(IdnExp(IdnUse("m")), IntExp(0)),
+                                Block(
+                                    Vector(),
+                                    Vector(
+                                        CallStmt(
+                                            CallExp(
+                                                IdnExp(IdnUse("writed")),
+                                                Vector(
+                                                    IdnExp(IdnUse("m")),
+                                                    MinusExp(IdnExp(IdnUse("d")), IntExp(1))))),
+                                        AssignStmt(Vector(IdnExp(IdnUse("d"))), Vector(IntExp(1)))))),
+                            CallStmt(
+                                CallExp(
+                                    IdnExp(IdnUse("writed")),
+                                    Vector(
+                                        MinusExp(
+                                            IdnExp(IdnUse("n")),
+                                            StarExp(IdnExp(IdnUse("m")), IntExp(10))),
+                                        IdnExp(IdnUse("d")))))))),
+                LetProcClause(
+                    IdnDef("writen"),
+                    Vector(IdnDef("n")),
+                    CallStmt(
+                        CallExp(IdnExp(IdnUse("writed")), Vector(IdnExp(IdnUse("n")), IntExp(0))))),
+                LetProcClause(
+                    IdnDef("writebin"),
+                    Vector(IdnDef("n"), IdnDef("d")),
+                    Block(
+                        Vector(),
+                        Vector(
+                            IfDoStmt(
+                                GreaterExp(IdnExp(IdnUse("d")), IntExp(1)),
+                                CallStmt(
+                                    CallExp(
+                                        IdnExp(IdnUse("writebin")),
+                                        Vector(
+                                            ShiftRightExp(IdnExp(IdnUse("n")), IntExp(1)),
+                                            MinusExp(IdnExp(IdnUse("d")), IntExp(1)))))),
+                            CallStmt(
+                                CallExp(
+                                    IdnExp(IdnUse("wrch")),
+                                    Vector(
+                                        PlusExp(
+                                            AndExp(IdnExp(IdnUse("n")), IntExp(1)),
+                                            ChrExp(Vector(48))))))))),
+                LetProcClause(
+                    IdnDef("writeoct"),
+                    Vector(IdnDef("n"), IdnDef("d")),
+                    Block(
+                        Vector(),
+                        Vector(
+                            IfDoStmt(
+                                GreaterExp(IdnExp(IdnUse("d")), IntExp(1)),
+                                CallStmt(
+                                    CallExp(
+                                        IdnExp(IdnUse("writeoct")),
+                                        Vector(
+                                            ShiftRightExp(IdnExp(IdnUse("n")), IntExp(3)),
+                                            MinusExp(IdnExp(IdnUse("d")), IntExp(1)))))),
+                            CallStmt(
+                                CallExp(
+                                    IdnExp(IdnUse("wrch")),
+                                    Vector(
+                                        PlusExp(
+                                            AndExp(IdnExp(IdnUse("n")), IntExp(7)),
+                                            ChrExp(Vector(48))))))))),
+                LetProcClause(
+                    IdnDef("writehex"),
+                    Vector(IdnDef("n"), IdnDef("d")),
+                    Block(
+                        Vector(),
+                        Vector(
+                            IfDoStmt(
+                                GreaterExp(IdnExp(IdnUse("d")), IntExp(1)),
+                                CallStmt(
+                                    CallExp(
+                                        IdnExp(IdnUse("writehex")),
+                                        Vector(
+                                            ShiftRightExp(IdnExp(IdnUse("n")), IntExp(4)),
+                                            MinusExp(IdnExp(IdnUse("d")), IntExp(1)))))),
+                            CallStmt(
+                                CallExp(
+                                    IdnExp(IdnUse("wrch")),
+                                    Vector(
+                                        BinaryPlingExp(
+                                            TableExp(
+                                                Vector(
+                                                    ChrExp(Vector(48)),
+                                                    ChrExp(Vector(49)),
+                                                    ChrExp(Vector(50)),
+                                                    ChrExp(Vector(51)),
+                                                    ChrExp(Vector(52)),
+                                                    ChrExp(Vector(53)),
+                                                    ChrExp(Vector(54)),
+                                                    ChrExp(Vector(55)),
+                                                    ChrExp(Vector(56)),
+                                                    ChrExp(Vector(57)),
+                                                    ChrExp(Vector(65)),
+                                                    ChrExp(Vector(66)),
+                                                    ChrExp(Vector(67)),
+                                                    ChrExp(Vector(68)),
+                                                    ChrExp(Vector(69)),
+                                                    ChrExp(Vector(70)))),
+                                            AndExp(IdnExp(IdnUse("n")), IntExp(15))))))))),
+                LetProcClause(
+                    IdnDef("writes"),
+                    Vector(IdnDef("s")),
+                    ForStmt(
+                        IdnDef("i"),
+                        IntExp(1),
+                        BinaryBytePlingExp(IdnExp(IdnUse("s")), IntExp(0)),
+                        None,
+                        CallStmt(
+                            CallExp(
+                                IdnExp(IdnUse("wrch")),
+                                Vector(BinaryBytePlingExp(IdnExp(IdnUse("s")), IdnExp(IdnUse("i")))))))),
+                LetProcClause(
+                    IdnDef("writet"),
+                    Vector(IdnDef("s"), IdnDef("d")),
+                    Block(
+                        Vector(),
+                        Vector(
+                            CallStmt(CallExp(IdnExp(IdnUse("writes")), Vector(IdnExp(IdnUse("s"))))),
+                            ForStmt(
+                                IdnDef("i"),
+                                IntExp(1),
+                                MinusExp(
+                                    IdnExp(IdnUse("d")),
+                                    BinaryBytePlingExp(IdnExp(IdnUse("s")), IntExp(0))),
+                                None,
+                                CallStmt(CallExp(IdnExp(IdnUse("wrch")), Vector(ChrExp(Vector(32))))))))),
+                LetProcClause(
+                    IdnDef("writef"),
+                    Vector(
+                        IdnDef("format"),
+                        IdnDef("a"),
+                        IdnDef("b"),
+                        IdnDef("c"),
+                        IdnDef("d"),
+                        IdnDef("e"),
+                        IdnDef("f"),
+                        IdnDef("g"),
+                        IdnDef("h"),
+                        IdnDef("i"),
+                        IdnDef("j"),
+                        IdnDef("k")),
+                    Block(
+                        Vector(
+                            LetDecl(
+                                Vector(
+                                    LetVarClause(
+                                        Vector(IdnDef("t")),
+                                        Vector(AddrOfExp(IdnExp(IdnUse("a")))))))),
+                        Vector(
+                            ForStmt(
+                                IdnDef("p"),
+                                IntExp(1),
+                                BinaryBytePlingExp(IdnExp(IdnUse("format")), IntExp(0)),
+                                None,
+                                Block(
+                                    Vector(
+                                        LetDecl(
+                                            Vector(
+                                                LetVarClause(
+                                                    Vector(IdnDef("k")),
+                                                    Vector(
+                                                        BinaryBytePlingExp(
+                                                            IdnExp(IdnUse("format")),
+                                                            IdnExp(IdnUse("p")))))))),
+                                    Vector(
+                                        TestThenElseStmt(
+                                            EqualExp(IdnExp(IdnUse("k")), ChrExp(Vector(37))),
+                                            Block(
+                                                Vector(
+                                                    LetDecl(
+                                                        Vector(
+                                                            LetVarClause(
+                                                                Vector(IdnDef("f"), IdnDef("n")),
+                                                                Vector(UndefExp(), UndefExp()))))),
+                                                Vector(
+                                                    AssignStmt(
+                                                        Vector(IdnExp(IdnUse("p"))),
+                                                        Vector(
+                                                            PlusExp(IdnExp(IdnUse("p")), IntExp(1)))),
+                                                    SwitchOnStmt(
+                                                        CallExp(
+                                                            IdnExp(IdnUse("capitalch")),
+                                                            Vector(
+                                                                BinaryBytePlingExp(
+                                                                    IdnExp(IdnUse("format")),
+                                                                    IdnExp(IdnUse("p"))))),
+                                                        Block(
+                                                            Vector(),
+                                                            Vector(
+                                                                Default(
+                                                                    CallStmt(
+                                                                        CallExp(
+                                                                            IdnExp(IdnUse("wrch")),
+                                                                            Vector(
+                                                                                BinaryBytePlingExp(
+                                                                                    IdnExp(
+                                                                                        IdnUse(
+                                                                                            "format")),
+                                                                                    IdnExp(
+                                                                                        IdnUse("p"))))))),
+                                                                EndCaseStmt(),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(83)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(IdnUse("writes"))))),
+                                                                GotoStmt(LabUse("l")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(84)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(IdnUse("writet"))))),
+                                                                GotoStmt(LabUse("m")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(67)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(IdnUse("wrch"))))),
+                                                                GotoStmt(LabUse("l")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(66)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(
+                                                                                IdnUse("writebin"))))),
+                                                                GotoStmt(LabUse("m")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(79)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(
+                                                                                IdnUse("writeoct"))))),
+                                                                GotoStmt(LabUse("m")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(88)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(
+                                                                                IdnUse("writehex"))))),
+                                                                GotoStmt(LabUse("m")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(73)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(IdnUse("writed"))))),
+                                                                GotoStmt(LabUse("m")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(78)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(IdnUse("writen"))))),
+                                                                GotoStmt(LabUse("l")),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(85)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("f"))),
+                                                                        Vector(
+                                                                            IdnExp(IdnUse("writeu"))))),
+                                                                Labelled(
+                                                                    LabDef("m"),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("p"))),
+                                                                        Vector(
+                                                                            PlusExp(
+                                                                                IdnExp(IdnUse("p")),
+                                                                                IntExp(1))))),
+                                                                AssignStmt(
+                                                                    Vector(IdnExp(IdnUse("n"))),
+                                                                    Vector(
+                                                                        BinaryBytePlingExp(
+                                                                            IdnExp(IdnUse("format")),
+                                                                            IdnExp(IdnUse("p"))))),
+                                                                AssignStmt(
+                                                                    Vector(IdnExp(IdnUse("n"))),
+                                                                    Vector(
+                                                                        IfExp(
+                                                                            AndExp(
+                                                                                LessOrEqualExp(
+                                                                                    ChrExp(
+                                                                                        Vector(48)),
+                                                                                    IdnExp(
+                                                                                        IdnUse("n"))),
+                                                                                LessOrEqualExp(
+                                                                                    IdnExp(
+                                                                                        IdnUse("n")),
+                                                                                    ChrExp(
+                                                                                        Vector(57)))),
+                                                                            MinusExp(
+                                                                                IdnExp(IdnUse("n")),
+                                                                                ChrExp(Vector(48))),
+                                                                            MinusExp(
+                                                                                PlusExp(
+                                                                                    IntExp(10),
+                                                                                    IdnExp(
+                                                                                        IdnUse("n"))),
+                                                                                ChrExp(Vector(65)))))),
+                                                                Labelled(
+                                                                    LabDef("l"),
+                                                                    CallStmt(
+                                                                        CallExp(
+                                                                            IdnExp(IdnUse("f")),
+                                                                            Vector(
+                                                                                UnaryPlingExp(
+                                                                                    IdnExp(
+                                                                                        IdnUse("t"))),
+                                                                                IdnExp(IdnUse("n")))))),
+                                                                CaseOf(
+                                                                    ChrExp(Vector(36)),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("t"))),
+                                                                        Vector(
+                                                                            PlusExp(
+                                                                                IdnExp(IdnUse("t")),
+                                                                                IntExp(1)))))))))),
+                                            CallStmt(
+                                                CallExp(
+                                                    IdnExp(IdnUse("wrch")),
+                                                    Vector(IdnExp(IdnUse("k"))))))))))))))))

@@ -1,0 +1,247 @@
+Program(
+    Vector(
+        ManifestDecl(
+            Vector(
+                ManifestEntry(IdnDef("upb"), Some(IntExp(60))),
+                ManifestEntry(IdnDef("big"), Some(IntExp(1000))))),
+        LetDecl(
+            Vector(
+                LetProcClause(
+                    IdnDef("start"),
+                    Vector(),
+                    Block(
+                        Vector(
+                            LetDecl(
+                                Vector(
+                                    LetVarClause(
+                                        Vector(IdnDef("p"), IdnDef("q")),
+                                        Vector(IntExp(1), IntExp(0))))),
+                            LetDecl(
+                                Vector(
+                                    LetVecClause(IdnDef("v"), IdnExp(IdnUse("upb"))),
+                                    LetVecClause(IdnDef("w"), IdnExp(IdnUse("upb")))))),
+                        Vector(
+                            ForStmt(
+                                IdnDef("i"),
+                                IntExp(1),
+                                MinusExp(IdnExp(IdnUse("upb")), IntExp(1)),
+                                None,
+                                AssignStmt(
+                                    Vector(BinaryPlingExp(IdnExp(IdnUse("v")), IdnExp(IdnUse("i")))),
+                                    Vector(
+                                        MinusExp(
+                                            PlusExp(
+                                                ChrExp(Vector(65)),
+                                                CallExp(IdnExp(IdnUse("randno")), Vector(IntExp(26)))),
+                                            IntExp(1))))),
+                            AssignStmt(
+                                Vector(
+                                    BinaryPlingExp(IdnExp(IdnUse("v")), IntExp(0)),
+                                    BinaryPlingExp(IdnExp(IdnUse("v")), IdnExp(IdnUse("upb")))),
+                                Vector(IdnExp(IdnUse("big")), IdnExp(IdnUse("big")))),
+                            RepeatUntilStmt(
+                                Block(
+                                    Vector(),
+                                    Vector(
+                                        AssignStmt(Vector(IdnExp(IdnUse("q"))), Vector(IntExp(0))),
+                                        ForStmt(
+                                            IdnDef("i"),
+                                            IntExp(1),
+                                            MinusExp(IdnExp(IdnUse("p")), IntExp(1)),
+                                            None,
+                                            CallStmt(
+                                                CallExp(
+                                                    IdnExp(IdnUse("wrch")),
+                                                    Vector(
+                                                        BinaryPlingExp(
+                                                            IdnExp(IdnUse("v")),
+                                                            IdnExp(IdnUse("i"))))))),
+                                        CallStmt(
+                                            CallExp(
+                                                IdnExp(IdnUse("wrch")),
+                                                Vector(ChrExp(Vector(124))))),
+                                        ForStmt(
+                                            IdnDef("i"),
+                                            IdnExp(IdnUse("p")),
+                                            MinusExp(IdnExp(IdnUse("upb")), IntExp(1)),
+                                            None,
+                                            Block(
+                                                Vector(),
+                                                Vector(
+                                                    AssignStmt(
+                                                        Vector(IdnExp(IdnUse("q"))),
+                                                        Vector(
+                                                            PlusExp(IdnExp(IdnUse("q")), IntExp(1)))),
+                                                    AssignStmt(
+                                                        Vector(
+                                                            BinaryPlingExp(
+                                                                IdnExp(IdnUse("w")),
+                                                                IdnExp(IdnUse("q")))),
+                                                        Vector(IdnExp(IdnUse("i")))),
+                                                    CallStmt(
+                                                        CallExp(
+                                                            IdnExp(IdnUse("wrch")),
+                                                            Vector(
+                                                                BinaryPlingExp(
+                                                                    IdnExp(IdnUse("v")),
+                                                                    IdnExp(IdnUse("i"))))))))),
+                                        CallStmt(CallExp(IdnExp(IdnUse("newline")), Vector())),
+                                        AssignStmt(
+                                            Vector(IdnExp(IdnUse("q"))),
+                                            Vector(PlusExp(IdnExp(IdnUse("q")), IntExp(1)))),
+                                        UntilDoStmt(
+                                            LessOrEqualExp(IdnExp(IdnUse("q")), IntExp(2)),
+                                            Block(
+                                                Vector(
+                                                    LetDecl(
+                                                        Vector(
+                                                            LetVarClause(
+                                                                Vector(IdnDef("r")),
+                                                                Vector(IntExp(0)))))),
+                                                Vector(
+                                                    AssignStmt(
+                                                        Vector(
+                                                            BinaryPlingExp(
+                                                                IdnExp(IdnUse("w")),
+                                                                IdnExp(IdnUse("q")))),
+                                                        Vector(IdnExp(IdnUse("upb")))),
+                                                    ForStmt(
+                                                        IdnDef("i"),
+                                                        IntExp(1),
+                                                        MinusExp(IdnExp(IdnUse("q")), IntExp(1)),
+                                                        None,
+                                                        IfDoStmt(
+                                                            AndExp(
+                                                                GreaterExp(
+                                                                    BinaryPlingExp(
+                                                                        IdnExp(IdnUse("v")),
+                                                                        BinaryPlingExp(
+                                                                            IdnExp(IdnUse("w")),
+                                                                            MinusExp(
+                                                                                IdnExp(IdnUse("i")),
+                                                                                IntExp(1)))),
+                                                                    BinaryPlingExp(
+                                                                        IdnExp(IdnUse("v")),
+                                                                        BinaryPlingExp(
+                                                                            IdnExp(IdnUse("w")),
+                                                                            IdnExp(IdnUse("i"))))),
+                                                                LessOrEqualExp(
+                                                                    BinaryPlingExp(
+                                                                        IdnExp(IdnUse("v")),
+                                                                        BinaryPlingExp(
+                                                                            IdnExp(IdnUse("w")),
+                                                                            IdnExp(IdnUse("i")))),
+                                                                    BinaryPlingExp(
+                                                                        IdnExp(IdnUse("v")),
+                                                                        BinaryPlingExp(
+                                                                            IdnExp(IdnUse("w")),
+                                                                            PlusExp(
+                                                                                IdnExp(IdnUse("i")),
+                                                                                IntExp(1)))))),
+                                                            Block(
+                                                                Vector(),
+                                                                Vector(
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("r"))),
+                                                                        Vector(
+                                                                            PlusExp(
+                                                                                IdnExp(IdnUse("r")),
+                                                                                IntExp(1)))),
+                                                                    AssignStmt(
+                                                                        Vector(
+                                                                            BinaryPlingExp(
+                                                                                IdnExp(IdnUse("w")),
+                                                                                IdnExp(IdnUse("r")))),
+                                                                        Vector(
+                                                                            BinaryPlingExp(
+                                                                                IdnExp(IdnUse("w")),
+                                                                                IdnExp(IdnUse("i"))))))))),
+                                                    AssignStmt(
+                                                        Vector(IdnExp(IdnUse("q"))),
+                                                        Vector(
+                                                            PlusExp(IdnExp(IdnUse("r")), IntExp(1)))),
+                                                    AssignStmt(
+                                                        Vector(
+                                                            BinaryPlingExp(
+                                                                IdnExp(IdnUse("w")),
+                                                                IdnExp(IdnUse("q")))),
+                                                        Vector(IdnExp(IdnUse("upb")))),
+                                                    ForStmt(
+                                                        IdnDef("i"),
+                                                        IntExp(1),
+                                                        MinusExp(IdnExp(IdnUse("p")), IntExp(1)),
+                                                        None,
+                                                        CallStmt(
+                                                            CallExp(
+                                                                IdnExp(IdnUse("wrch")),
+                                                                Vector(
+                                                                    BinaryPlingExp(
+                                                                        IdnExp(IdnUse("v")),
+                                                                        IdnExp(IdnUse("i"))))))),
+                                                    CallStmt(
+                                                        CallExp(
+                                                            IdnExp(IdnUse("wrch")),
+                                                            Vector(ChrExp(Vector(124))))),
+                                                    AssignStmt(
+                                                        Vector(IdnExp(IdnUse("r"))),
+                                                        Vector(IntExp(1))),
+                                                    ForStmt(
+                                                        IdnDef("i"),
+                                                        IdnExp(IdnUse("p")),
+                                                        MinusExp(IdnExp(IdnUse("upb")), IntExp(1)),
+                                                        None,
+                                                        TestThenElseStmt(
+                                                            EqualExp(
+                                                                BinaryPlingExp(
+                                                                    IdnExp(IdnUse("w")),
+                                                                    IdnExp(IdnUse("r"))),
+                                                                IdnExp(IdnUse("i"))),
+                                                            Block(
+                                                                Vector(),
+                                                                Vector(
+                                                                    CallStmt(
+                                                                        CallExp(
+                                                                            IdnExp(IdnUse("wrch")),
+                                                                            Vector(
+                                                                                BinaryPlingExp(
+                                                                                    IdnExp(
+                                                                                        IdnUse("v")),
+                                                                                    IdnExp(
+                                                                                        IdnUse("i")))))),
+                                                                    AssignStmt(
+                                                                        Vector(IdnExp(IdnUse("r"))),
+                                                                        Vector(
+                                                                            PlusExp(
+                                                                                IdnExp(IdnUse("r")),
+                                                                                IntExp(1)))))),
+                                                            CallStmt(
+                                                                CallExp(
+                                                                    IdnExp(IdnUse("wrch")),
+                                                                    Vector(ChrExp(Vector(32))))))),
+                                                    CallStmt(
+                                                        CallExp(IdnExp(IdnUse("newline")), Vector()))))),
+                                        AssignStmt(
+                                            Vector(IdnExp(IdnUse("q"))),
+                                            Vector(
+                                                BinaryPlingExp(
+                                                    IdnExp(IdnUse("v")),
+                                                    IdnExp(IdnUse("p"))))),
+                                        AssignStmt(
+                                            Vector(
+                                                BinaryPlingExp(
+                                                    IdnExp(IdnUse("v")),
+                                                    IdnExp(IdnUse("p")))),
+                                            Vector(
+                                                BinaryPlingExp(
+                                                    IdnExp(IdnUse("v")),
+                                                    BinaryPlingExp(IdnExp(IdnUse("w")), IntExp(1))))),
+                                        AssignStmt(
+                                            Vector(
+                                                BinaryPlingExp(
+                                                    IdnExp(IdnUse("v")),
+                                                    BinaryPlingExp(IdnExp(IdnUse("w")), IntExp(1)))),
+                                            Vector(IdnExp(IdnUse("q")))),
+                                        AssignStmt(
+                                            Vector(IdnExp(IdnUse("p"))),
+                                            Vector(PlusExp(IdnExp(IdnUse("p")), IntExp(1)))))),
+                                GreaterOrEqualExp(IdnExp(IdnUse("p")), IdnExp(IdnUse("upb")))))))))))

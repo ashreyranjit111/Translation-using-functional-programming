@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Untitled</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">html {
+font-size: 100%;
+overflow-y: scroll;
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+}
+body {
+color: #444;
+font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+font-size: 12px;
+line-height: 1.7;
+padding: 1em;
+margin: auto;
+max-width: 42em;
+background: #fefefe;
+}
+a {
+color: #0645ad;
+text-decoration: none;
+}
+a:visited {
+color: #0b0080;
+}
+a:hover {
+color: #06e;
+}
+a:active {
+color: #faa700;
+}
+a:focus {
+outline: thin dotted;
+}
+*::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+*::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+a::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+a::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+p {
+margin: 1em 0;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+color: #111;
+line-height: 125%;
+margin-top: 2em;
+font-weight: normal;
+}
+h4, h5, h6 {
+font-weight: bold;
+}
+h1 {
+font-size: 2.5em;
+}
+h2 {
+font-size: 2em;
+}
+h3, p.subtitle {
+font-size: 1.5em;
+}
+h4 {
+font-size: 1.2em;
+}
+h5 {
+font-size: 1em;
+}
+h6 {
+font-size: 0.9em;
+}
+h1.title, p.subtitle, p.author, p.date {
+text-align: center
+}
+blockquote {
+color: #666666;
+margin: 0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr {
+display: block;
+height: 2px;
+border: 0;
+border-top: 1px solid #aaa;
+border-bottom: 1px solid #eee;
+margin: 1em 0;
+padding: 0;
+}
+pre, code, kbd, samp {
+color: #000;
+font-family: monospace, monospace;
+_font-family: 'courier new', monospace;
+font-size: 0.98em;
+}
+pre {
+white-space: pre;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+b, strong {
+font-weight: bold;
+}
+dfn {
+font-style: italic;
+}
+ins {
+background: #ff9;
+color: #000;
+text-decoration: none;
+}
+mark {
+background: #ff0;
+color: #000;
+font-style: italic;
+font-weight: bold;
+}
+sub, sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+sup {
+top: -0.5em;
+}
+sub {
+bottom: -0.25em;
+}
+ul, ol {
+margin: 1em 0;
+padding: 0 0 0 2em;
+}
+li p:last-child {
+margin-bottom: 0;
+}
+ul ul, ol ol {
+margin: .3em 0;
+}
+dl {
+margin-bottom: 1em;
+}
+dt {
+font-weight: bold;
+margin-bottom: .8em;
+}
+dd {
+margin: 0 0 .8em 2em;
+}
+dd:last-child {
+margin-bottom: 0;
+}
+img {
+border: 0;
+-ms-interpolation-mode: bicubic;
+vertical-align: middle;
+}
+figure {
+display: block;
+text-align: center;
+margin: 1em 0;
+}
+figure img {
+border: none;
+margin: 0 auto;
+}
+figcaption {
+font-size: 0.8em;
+font-style: italic;
+margin: 0 0 .8em;
+}
+table {
+margin-bottom: 2em;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-spacing: 0;
+border-collapse: collapse;
+}
+table th {
+padding: .2em 1em;
+background-color: #eee;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+}
+table td {
+padding: .2em 1em;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+vertical-align: top;
+}
+.author {
+font-size: 1.2em;
+text-align: center;
+}
+@media only screen and (min-width: 480px) {
+body {
+font-size: 14px;
+}
+}
+@media only screen and (min-width: 768px) {
+body {
+font-size: 16px;
+}
+}
+@media print {
+* {
+background: transparent !important;
+color: black !important;
+filter: none !important;
+-ms-filter: none !important;
+}
+body {
+font-size: 12pt;
+max-width: 100%;
+}
+a, a:visited {
+text-decoration: underline;
+}
+hr {
+height: 1px;
+border: 0;
+border-bottom: 1px solid black;
+}
+a[href]:after {
+content: " (" attr(href) ")";
+}
+abbr[title]:after {
+content: " (" attr(title) ")";
+}
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+content: "";
+}
+pre, blockquote {
+border: 1px solid #999;
+padding-right: 1em;
+page-break-inside: avoid;
+}
+tr, img {
+page-break-inside: avoid;
+}
+img {
+max-width: 100% !important;
+}
+@page :left {
+margin: 15mm 20mm 15mm 10mm;
+}
+@page :right {
+margin: 15mm 10mm 15mm 20mm;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3 {
+page-break-after: avoid;
+}
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="macquarie-university-department-of-computing">Macquarie University, Department of Computing</h1>
+<h2 id="comp332-programming-languages-2019">COMP332 Programming Languages 2019</h2>
+<h2 id="assignment-2">Assignment 2</h2>
+<p>Due: 11.55pm Saturday 12th October 2019 (end week 9)<br />
+Worth: 15% of unit assessment</p>
+<p>Marks breakdown:</p>
+<ul>
+<li>Code: 50% (of which tests are worth 10%)</li>
+<li>Report: 50% (of which test description is worth 10%)</li>
+</ul>
+<p>Submit a notice of disruption via <a href="https://ask.mq.edu.au">Ask@MQ</a> if you are unable to submit on time for medical or other legitimate reasons.</p>
+<p>Late penalty without proper justification: 20% of the full marks for the assessment per day or part thereof late.</p>
+<h3 id="overview">Overview</h3>
+<p>This assignment asks you to develop a lexical parser and tree builder for the retro-language <a href="README.md">weBCPL</a>, a variant of the language <a href="https://en.wikipedia.org/wiki/BCPL">BCPL</a>. We will build on these components in later assignments to complete a full implementation of this language in assignment 3.</p>
+<p>Building this implementation will give you insight into the way that programming language implementations work in general, as well as specific experience with how programs are written, how they are compiled, and how they are executed.</p>
+<p>This kind of task often arises in programming situations other than programming language implementation. For example, many applications have configuration files that are written in simple languages. The application must be able to read these files reliably and understand their structure, just as a compiler must read program files and understand them.</p>
+<p>The weBCPL programming language and its syntax are described in detail in the <a href="README.md">README</a> file which you can find, in markdown and HTML formats, in the root directory of the assignment 2 skeleton.</p>
+<h3 id="important">Important!</h3>
+<p>You are <strong>strongly</strong> advised not to try to solve the whole assignment in one go. It is best to write code to handle the parsing and tree construction for some simple constructs first and then build up to the full language.</p>
+<h3 id="what-you-have-to-do">What you have to do</h3>
+<p>You have to write, document and test a Scala syntax analyser including tree builder for the weBCPL language.</p>
+<p>A skeleton <strong>sbt</strong> project for the assignment has been provided on BitBucket as the <a href="https://bitbucket.org/dominicverity/comp332-webcpl">dominicverity/comp332-webcpl</a> repository. The modules are very similar to those used in the practical exercises. The skeleton contains the modules you will need.</p>
+<p>The <a href="src/main/scala/SyntaxAnalysis.scala"><code>SyntaxAnalysis.scala</code></a> module in the skeleton already contains code to parse weBCPL declarations and some simple expressions. Your task is to complete this implementation by adding code to parse weBCPL statements and more complex expressions.</p>
+<p>Your code must use the Kiama parsing library as discussed in lectures and practicals. You should use the expression language syntax analyser and tree builder from the mixed classes as a guide for your implementation.</p>
+<p>The parser skeleton provides a module <a href="src/main/scala/LexicalAnalysis.scala"><code>LexicalAnalysis.scala</code></a> which handles all of the lexical issues involved in parsing weBCPL programs. Parsers provided by that module provide everything necessary to parse integer / string / character constants, BCPL keywords and operators, identifiers, labels and comments. As described in the <a href="README.md">README</a> it also handles all of the tricky corner cases in the parsing of weBCPL, including the <em>“semi-colons may be omitted at the end of a line”</em> rule.</p>
+<p>As well as parsing the input it is presented with, your program should construct a suitable source program tree to represent the parsed result. See <a href="src/main/scala/BCPLTree.scala"><code>BCPLTree.scala</code></a> in the skeleton for the full definition and description of the tree structures that you must use. For this part of the assignment, you <strong>must not</strong> modify these tree classes, just create instances in your parser code.</p>
+<p>You should not make changes to any of the framework modules other than <a href="src/main/scala/SyntaxAnalysis.scala"><code>SyntaxAnaysis.scala</code></a>, which is where you will put your parser code, and <a href="src/test/scala/SyntaxAnalysisTests.scala"><code>SyntaxAnalysisTests.scala</code></a>, which is where you will put the automated test code for your parsers. Look for the <code>FIXME</code> comments to find the places where you should add your code.</p>
+<h3 id="source-trees">Source Trees</h3>
+<p>As an example of the desired tree structure, here is a fragment of BCPL code</p>
+<pre><code>v!i + v!j - a * b</code></pre>
+<p>and here is the tree that your syntax analyser should produce on parsing that expression:</p>
+<pre><code>MinusExp(
+    PlusExp(
+        BinaryPlingExp(
+            IdnExp(IdnUse(&quot;v&quot;)),
+            IdnExp(IdnUse(&quot;i&quot;))),
+        BinaryPlingExp(
+            IdnExp(IdnUse(&quot;v&quot;)),
+            IdnExp(IdnUse(&quot;j&quot;)))),
+    StarExp(
+        IdnExp(IdnUse(&quot;a&quot;)), 
+        IdnExp(IdnUse(&quot;b&quot;))))</code></pre>
+<p>Notice that the higher precedence of the dereferencing operator (<code>!</code> which is pronounced “pling” in BCPL jargon) over multiplication over addition / subtraction, as well as the left associativity of the latter, has been taken into account in this tree. As a more complex example, consider the following fragment of weBCPL code</p>
+<pre><code>$(
+    LET poss = all &amp; ~(ld | row | rd)
+    UNTIL poss = 0 DO
+    $(
+        LET p = poss &amp; -poss
+        poss := poss - p
+        try(ld + p &lt;&lt; 1, row + p, rd + p &gt;&gt; 1)
+    $)
+$)</code></pre>
+<p>from which your parser should produce the following more complicated syntax tree:</p>
+<pre><code>Block(
+    Vector(
+        LetDecl(
+            Vector(
+                LetVarClause(
+                    Vector(IdnDef(&quot;poss&quot;)),
+                    Vector(
+                        AndExp(
+                            IdnExp(IdnUse(&quot;all&quot;)),
+                            NotExp(
+                                OrExp(
+                                    OrExp(
+                                        IdnExp(IdnUse(&quot;ld&quot;)),
+                                        IdnExp(IdnUse(&quot;row&quot;))),
+                                    IdnExp(IdnUse(&quot;rd&quot;)))))))))),
+    Vector(
+        UntilDoStmt(
+            EqualExp(IdnExp(IdnUse(&quot;poss&quot;)), IntExp(0)),
+            Block(
+                Vector(
+                    LetDecl(
+                        Vector(
+                            LetVarClause(
+                                Vector(IdnDef(&quot;p&quot;)),
+                                Vector(
+                                    AndExp(
+                                        IdnExp(IdnUse(&quot;poss&quot;)),
+                                        NegExp(IdnExp(IdnUse(&quot;poss&quot;))))))))),
+                Vector(
+                    AssignStmt(
+                        Vector(IdnExp(IdnUse(&quot;poss&quot;))),
+                        Vector(
+                            MinusExp(
+                                IdnExp(IdnUse(&quot;poss&quot;)),
+                                IdnExp(IdnUse(&quot;p&quot;))))),
+                    CallStmt(
+                        CallExp(
+                            IdnExp(IdnUse(&quot;try&quot;)),
+                            Vector(
+                                ShiftLeftExp(
+                                    PlusExp(
+                                        IdnExp(IdnUse(&quot;ld&quot;)),
+                                        IdnExp(IdnUse(&quot;p&quot;))),
+                                    IntExp(1)),
+                                PlusExp(
+                                    IdnExp(IdnUse(&quot;row&quot;)),
+                                    IdnExp(IdnUse(&quot;p&quot;))),
+                                ShiftRightExp(
+                                    PlusExp(
+                                        IdnExp(IdnUse(&quot;rd&quot;)),
+                                        IdnExp(IdnUse(&quot;p&quot;))),
+                                    IntExp(1))))))))))</code></pre>
+<p>You can find a number of other examples of weBCPL code and the corresponding source trees in the <a href="src/test/resources/"><code>src/test/resources/</code></a> directory of the assignment skeleton.</p>
+<h3 id="running-the-syntax-analyser-and-testing-it">Running the syntax analyser and testing it</h3>
+<p>The skeleton for this assignment is designed to be run from within sbt. For example, to compile your project and run it on the file <a href="src/test/resources/queens.b"><code>src/test/resources/queens.b</code></a> (which is provided for you in the framework code) you use the following command at the sbt console prompt:</p>
+<pre><code>run src/test/resources/queens.b</code></pre>
+<p>Assuming your code compiles and runs, the run will print the tree that has been constructed (for correct input), or will print a syntax error message (for incorrect input). In the same directory as the <a href="src/test/resources/queens.b"><code>queens.b</code></a> file you will find a file called <a href="src/test/resources/queens.out"><code>queens.out</code></a>, this contains the output produced by our weBCPL syntax analyser when it processed the <a href="src/test/resources/queens.b"><code>queens.b</code></a> code.</p>
+<p>The project is also set up to do automatic testing. See the file <code>SyntaxAnalysisTests.scala</code> which provides the necessary definitions to test the syntax analyser on some sample inputs. Note that the tests we provide are only examples and are not sufficient to test all of your code. You must augment them with other tests.</p>
+<p>You can run the tests using the <code>test</code> command in sbt. This command will build the project and then run each test in turn, comparing the output produced by your program with the expected output. Any deviations will be reported as test failures.</p>
+<h3 id="what-you-must-hand-in-and-how">What you must hand in and how</h3>
+<p>A zip file containing all of the code for your project and a type-written report.</p>
+<p>Submit every source and build file that is needed to build your program from source, including files in the skeleton that you have not changed. Do not add any new files or include multiple versions of your files. Do not include any libraries or generated files (run the sbt <code>clean</code> command before you zip your project). We will compile all of the files that you submit using sbt, so you should avoid any other build mechanisms.</p>
+<p>Your submission should include all of the tests that you have used to make sure that your program is working correctly. Note that just testing one or two simple cases is not enough for many marks. You should test as comprehensively as you can.</p>
+<p>Your report should describe how you have achieved the goals of the assignment. Do not neglect the report since it is worth 50% of the marks for the assignment.</p>
+<p>Your report should contain the following sections:</p>
+<ul>
+<li>A title page or heading that gives the assignment details, your name and student number.</li>
+<li>A brief introduction that summarises the aim of the assignment and the structure of the rest of the report.</li>
+<li>A description of the design and implementation work that you have done to achieve the goals of the assignment. Listing some code fragments may be useful to illustrate your description, but don’t give a long listing. Leaving out obvious stuff is OK, as long as what you have done is clear. A good rule of thumb is to include enough detail to allow a fellow student to understand it if they are at the stage you were at when you started work on the assignment.</li>
+<li>A description of the testing that you carried out. You should demonstrate that you have used a properly representative set of test cases to be confident that you have covered all the bases. Include details of the tests that you used and the rationale behind why they were chosen. Do not just print the tests out without explanation.</li>
+</ul>
+<p>Submit your code and report electronically in a single zip file called <code>ass2.zip</code> using the appropriate submission link on the COMP332 iLearn website by the due date and time. Your report must be in PDF format.</p>
+<p>DO NOT SUBMIT YOUR ASSIGNMENT OR DOCUMENTATION IN ANY OTHER FORMAT THAN ZIP and PDF, RESPECTIVELY. Use of any other format slows down the marking and may result in a mark deduction.</p>
+<h3 id="marking">Marking</h3>
+<p>The assignment will be assessed according to the assessment standards for the unit learning outcomes.</p>
+<p>Marks will be allocated equally to the code and to the report. Your code will be assessed for correctness and quality with respect to the assignment description. Marking of the report will assess the clarity and accuracy of your description and the adequacy of your testing. 20% of the marks for the assignment will be allocated to testing.</p>
+<hr />
+<p><a href="http://orcid.org/0000-0002-4137-6982">Dominic Verity</a><br />
+Last modified: 17 September 2019<br />
+<a href="http://mozilla.org/MPL/2.0/">Copyright (c) 2019 by Dominic Verity and Anthony Sloane. All rights reserved.</a></p>
+</body>
+</html>

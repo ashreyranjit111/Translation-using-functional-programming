@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Untitled</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">html {
+font-size: 100%;
+overflow-y: scroll;
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+}
+body {
+color: #444;
+font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+font-size: 12px;
+line-height: 1.7;
+padding: 1em;
+margin: auto;
+max-width: 42em;
+background: #fefefe;
+}
+a {
+color: #0645ad;
+text-decoration: none;
+}
+a:visited {
+color: #0b0080;
+}
+a:hover {
+color: #06e;
+}
+a:active {
+color: #faa700;
+}
+a:focus {
+outline: thin dotted;
+}
+*::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+*::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+a::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+a::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+p {
+margin: 1em 0;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+color: #111;
+line-height: 125%;
+margin-top: 2em;
+font-weight: normal;
+}
+h4, h5, h6 {
+font-weight: bold;
+}
+h1 {
+font-size: 2.5em;
+}
+h2 {
+font-size: 2em;
+}
+h3, p.subtitle {
+font-size: 1.5em;
+}
+h4 {
+font-size: 1.2em;
+}
+h5 {
+font-size: 1em;
+}
+h6 {
+font-size: 0.9em;
+}
+h1.title, p.subtitle, p.author, p.date {
+text-align: center
+}
+blockquote {
+color: #666666;
+margin: 0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr {
+display: block;
+height: 2px;
+border: 0;
+border-top: 1px solid #aaa;
+border-bottom: 1px solid #eee;
+margin: 1em 0;
+padding: 0;
+}
+pre, code, kbd, samp {
+color: #000;
+font-family: monospace, monospace;
+_font-family: 'courier new', monospace;
+font-size: 0.98em;
+}
+pre {
+white-space: pre;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+b, strong {
+font-weight: bold;
+}
+dfn {
+font-style: italic;
+}
+ins {
+background: #ff9;
+color: #000;
+text-decoration: none;
+}
+mark {
+background: #ff0;
+color: #000;
+font-style: italic;
+font-weight: bold;
+}
+sub, sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+sup {
+top: -0.5em;
+}
+sub {
+bottom: -0.25em;
+}
+ul, ol {
+margin: 1em 0;
+padding: 0 0 0 2em;
+}
+li p:last-child {
+margin-bottom: 0;
+}
+ul ul, ol ol {
+margin: .3em 0;
+}
+dl {
+margin-bottom: 1em;
+}
+dt {
+font-weight: bold;
+margin-bottom: .8em;
+}
+dd {
+margin: 0 0 .8em 2em;
+}
+dd:last-child {
+margin-bottom: 0;
+}
+img {
+border: 0;
+-ms-interpolation-mode: bicubic;
+vertical-align: middle;
+}
+figure {
+display: block;
+text-align: center;
+margin: 1em 0;
+}
+figure img {
+border: none;
+margin: 0 auto;
+}
+figcaption {
+font-size: 0.8em;
+font-style: italic;
+margin: 0 0 .8em;
+}
+table {
+margin-bottom: 2em;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-spacing: 0;
+border-collapse: collapse;
+}
+table th {
+padding: .2em 1em;
+background-color: #eee;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+}
+table td {
+padding: .2em 1em;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+vertical-align: top;
+}
+.author {
+font-size: 1.2em;
+text-align: center;
+}
+@media only screen and (min-width: 480px) {
+body {
+font-size: 14px;
+}
+}
+@media only screen and (min-width: 768px) {
+body {
+font-size: 16px;
+}
+}
+@media print {
+* {
+background: transparent !important;
+color: black !important;
+filter: none !important;
+-ms-filter: none !important;
+}
+body {
+font-size: 12pt;
+max-width: 100%;
+}
+a, a:visited {
+text-decoration: underline;
+}
+hr {
+height: 1px;
+border: 0;
+border-bottom: 1px solid black;
+}
+a[href]:after {
+content: " (" attr(href) ")";
+}
+abbr[title]:after {
+content: " (" attr(title) ")";
+}
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+content: "";
+}
+pre, blockquote {
+border: 1px solid #999;
+padding-right: 1em;
+page-break-inside: avoid;
+}
+tr, img {
+page-break-inside: avoid;
+}
+img {
+max-width: 100% !important;
+}
+@page :left {
+margin: 15mm 20mm 15mm 10mm;
+}
+@page :right {
+margin: 15mm 10mm 15mm 20mm;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3 {
+page-break-after: avoid;
+}
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="macquarie-university-department-of-computing">Macquarie University, Department of Computing</h1>
+<h2 id="comp332-programming-languages-2019">COMP332 Programming Languages 2019</h2>
+<h2 id="webcpl-a-retro-programming-language-for-the-web">weBCPL, a retro programming language for the web</h2>
+<h3 id="introduction">Introduction</h3>
+<p><a href="https://www.cl.cam.ac.uk/~mr10/"><strong>BCPL</strong></a> is described by its inventor, Martin Richards, as being a <em>“simple systems programming language with a small fast compiler which is easily ported to new machines. The language was first implemented in 1967 and has been in continuous use since then. It is typeless and provides machine independent pointer arithmetic allowing a simple way to represent vectors and structures.”</em></p>
+<p>The name BCPL is an acronym for <strong>B</strong>asic <strong>C</strong>ombined <strong>P</strong>rogramming <strong>L</strong>anguage and it was designed to be a simplified version of a more sophisticated, multi-paradigm language called <strong>CPL</strong>. Specifically, its original purpose was to provide a simple language for writing an operating environment and compiler for CPL.</p>
+<p>BCPL is of particular importance in the history of programming languages, as it is the direct ancestor of the programming languages <strong>B</strong>, which is now pretty much forgotten, and <strong>C</strong>, which is still the most used systems programming language (and is beloved of COMP202 students 😉). What always strikes us as remarkable is that so much of the programming culture that surrounds C was actually pioneered by Martin Richards, and his collaborators, in the development of BCPL.</p>
+<p>Dom also has a particular fondness for BCPL. It is not a language that he would use to write serious code in nowadays, but it is the first language that he wrote a compiler for.</p>
+<p><a href="https://webassembly.org/"><strong>WebAssembly</strong></a>, on the other hand, is described, in its specification, as a <em>“safe, portable, low-level code format designed for efficient execution and compact representation. Its main goal is to enable high performance applications on the Web, but it does not make any Web-specific assumptions or provide Web-specific features, so it can be employed in other environments as well.”</em></p>
+<hr />
+<p><strong>Our plan</strong> is to build a simple compiler to translate BCPL into WebAssembly, and to run a few simple BCPL programs in our browsers. In assignment 2 we will construct a BCPL parser and in assignment 3 we will build a code generator for our compiler targeting WebAssembly.</p>
+<blockquote>
+<p><code>weBCPL := BCPL + WebAssembly</code></p>
+</blockquote>
+<hr />
+<h4 id="references">References</h4>
+<ul>
+<li><p>Martin Richards, <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf"><strong>The BCPL Cintsys and Cintpos User Guide</strong></a>, <em>Computer Laboratory University of Cambridge</em>, 19 August 2019</p></li>
+<li><p>Andreas Rossberg (editor), <a href="https://webassembly.github.io/spec/core/_download/WebAssembly.pdf"><strong>WebAssembly Specification</strong></a>, <em>WebAssembly Community Group</em>, Version 1.0, 30 May 2019</p></li>
+</ul>
+<h3 id="the-webcpl-language">The weBCPL language</h3>
+<p>In essence, weBCPL is largely compliant with the 1980 version of the BCPL language described in the classic text <a href="https://www.amazon.co.uk/BCPL-Language-Compiler-Martin-Richards/dp/0521286816">BCPL: The Language and its Compiler (1980)</a>. It adopts the modernised syntactic conventions of the post-2013 variant of BCPL described in <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">The BCPL Cintsys and Cintpos User Guide</a>. The latter document will be our primary reference for the BCPL language, and we shall refer to it as the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a> from hereon.</p>
+<p>The BCPL language is described in detail in section 2 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>, the primary differences between the language described there and weBCPL are:</p>
+<ol type="1">
+<li>weBCPL does not implement the floating point extension (Section 2.6 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>). All variables in weBCPL contain 32-bit words which the arithmetic operations <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>MOD</code> and <code>ABS</code> treat as signed integers in 2s-complement form.</li>
+<li>weBCPL does not implement the field selection operation <code>OF</code> or the associated literal constant form <code>SLCT</code> (Section 2.2.2, page 16 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>).</li>
+<li>weBCPL string constants only provide a UTF-8 (not a GB2312) unicode mode and they adopt a different convention for the specification of unicode character escapes (Section 2.2.2, page 17 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>). These are given in terms of unicode codepoint numbers rather than UTF-8 byte sequences.</li>
+<li>weBCPL maintains a strict distinction between the identifiers used to name variables and functions and those that are used to name the <strong>labels</strong> that may be attached to statements. In weBCPL labels are not classified as expressions, so they have no value and they cannot appear in positions where expressions are expected. <code>GOTO</code> statements may only make jumps to labels that are visible within the current scope.</li>
+<li>weBCPL lacks a <code>GET</code> directive (Section 2.1.2 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>) and conditional compilation directives (Section 2.1.3 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>).</li>
+<li>weBCPL also lacks the ability to compile BCPL modules separately and then to link the resulting object files together at a later point in time. While this facility is something to be desired, its implementation would just take us too far afield in these assignments. So for the moment all of the code for each complete weBCPL programs must be contained in a single source file.</li>
+</ol>
+<p>We should also say that the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a> classifies all BCPL constructs into one of three classes: <strong>declarations</strong>, <strong>commands</strong>, and <strong>expressions</strong>. In weBCPL we do the same, except that we shall use the more standard term <strong>statement</strong> instead of command, largely in order to maintain consistency with the use of these terms in the COMP332 lecture notes.</p>
+<p>Beyond these relatively minor differences / restrictions, our aim is that weBCPL should stick as closely as possible to the BCPL language described in Section 2 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>. In particular, it should be able to correctly parse and translate a great proportion of legacy BCPL code.</p>
+<p>Whether that translated code will then execute correctly on a WebAssembly platform (your browser) is another matter. That depends upon the extent to which we have time to map the BCPL standard library (Section 3 of the <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a>) onto the facilities provided by your browser. In assignment 3 we will provide a minimal standard library, which will allow your weBCPL programs to read from and write to a simple terminal executing in your browser.</p>
+<h3 id="webcpl-syntax">weBCPL syntax</h3>
+<p>Here is a complete context-free grammar for the weBCPL language, upon which the parser of a weBCPL compiler should be based:</p>
+<pre><code>program : (declaration &quot;;&quot;)* declaration.
+
+// Grammar of BCPL Declarations
+
+declaration :
+      &quot;MANIFEST&quot; &quot;{&quot; (manifestEntry &quot;;&quot;)* manifestEntry &quot;}&quot;
+    | &quot;GLOBAL&quot; &quot;{&quot; (globalEntry &quot;;&quot;)* globalEntry &quot;}&quot;
+    | &quot;STATIC&quot; &quot;{&quot; (staticEntry &quot;;&quot;)* staticEntry &quot;}&quot;
+    | &quot;LET&quot; (letDeclClause &quot;AND&quot;)* letDeclClause
+
+manifestEntry : idndef (&quot;=&quot; expression)?
+globalEntry : idndef (&quot;:&quot; integerConst)?
+staticEntry : idndef (&quot;=&quot; expression)?
+
+letDeclClause :
+      (idndef &quot;,&quot;)* idndef &quot;=&quot; (expression &quot;,&quot;)* expression
+    | idndef &quot;=&quot; &quot;VEC&quot; expression
+    | idndef &quot;(&quot; ((idndef &quot;,&quot;)* idndef)? &quot;)&quot; &quot;=&quot; expression
+    | idndef &quot;(&quot; ((idndef &quot;,&quot;)* idndef)? &quot;)&quot; &quot;BE&quot; statement
+
+// Grammar of BCPL Statements
+
+statement :
+      labdef &quot;:&quot; statement
+    | &quot;CASE&quot; expression &quot;:&quot; statement
+    | &quot;DEFAULT&quot; &quot;:&quot; statement
+    | unlabelledStmt
+
+unlabelledStmt : repeatableStmt | iteratedStmt | testStmt
+
+iteratedStmt :
+      &quot;UNTIL&quot; expression &quot;DO&quot; statement
+    | &quot;WHILE&quot; expression &quot;DO&quot; statement
+    | &quot;FOR&quot; idndef &quot;=&quot; expression &quot;TO&quot; expression 
+          (&quot;BY&quot; expression)? &quot;DO&quot; statement
+
+testStmt :
+      &quot;TEST&quot; expression &quot;THEN&quot; statement &quot;ELSE&quot; statement
+    | &quot;IF&quot; expression &quot;DO&quot; statement
+    | &quot;UNLESS&quot; expression &quot;DO&quot; statement
+
+repeatableStmt :
+      repeatableStmt &quot;REPEAT&quot;
+    | repeatableStmt &quot;REPEATWHILE&quot; expression
+    | repeatableStmt &quot;REPEATUNTIL&quot; expression
+    | simpleStmt
+
+simpleStmt :
+      (expression &quot;,&quot;)* expression &quot;:=&quot; (expression &quot;,&quot;)* expression
+    | callExp 
+    | &quot;BREAK&quot; | &quot;LOOP&quot; | &quot;ENDCASE&quot; | &quot;RETURN&quot; | &quot;FINISH&quot;
+    | &quot;GOTO&quot; labuse
+    | &quot;RESULTIS&quot; expression
+    | &quot;SWITCHON&quot; expression &quot;INTO&quot; blockStmt
+    | blockStmt
+
+blockStmt : &quot;{&quot; (declaration &quot;;&quot;)* (statement &quot;;&quot;)* statement &quot;}&quot;
+
+// Grammar of BCPL expressions
+
+expression :
+      &quot;VALOF&quot; statement
+    | &quot;TABLE&quot; (expression &quot;,&quot;)* expression
+    | expression &quot;-&gt;&quot; expression &quot;,&quot; expression
+    | expression &quot;EQV&quot; expression
+    | expression &quot;XOR&quot; expression
+    | expression &quot;|&quot; expression
+    | expression &quot;&amp;&quot; expression
+    | &quot;NOT&quot; expression
+    | expression &quot;&lt;&lt;&quot; expression
+    | expression &quot;&gt;&gt;&quot; expression
+    | expression &quot;~=&quot; expression
+    | expression &quot;&lt;=&quot; expression
+    | expression &quot;&gt;=&quot; expression
+    | expression &quot;=&quot; expression
+    | expression &quot;&lt;&quot; expression
+    | expression &quot;&gt;&quot; expression
+    | expression &quot;+&quot; expression
+    | expression &quot;-&quot; expression
+    | &quot;-&quot; expression
+    | &quot;+&quot; expression
+    | &quot;ABS&quot; expression
+    | expression &quot;*&quot; expression
+    | expression &quot;/&quot; expression
+    | expression &quot;MOD&quot; expression
+    | &quot;!&quot; expression
+    | &quot;%&quot; expression
+    | &quot;@&quot; expression
+    | expression &quot;!&quot; expression
+    | expression &quot;%&quot; expression
+    | callExp
+    | elemExp
+
+callExp 
+    : (callExp | elemExp) &quot;(&quot; ((expression &quot;,&quot;)* expression)? &quot;)&quot;
+
+elemExp
+    : &quot;(&quot; expression &quot;)&quot;
+    | &quot;TRUE&quot; | &quot;FALSE&quot; | &quot;?&quot;
+    | integerConst
+    | charConst
+    | stringConst
+    | idnuse
+
+idnuse : identifier
+idndef : identifier
+labuse : identifier
+labdef : identifier</code></pre>
+<h4 id="precedence-and-associativity">Precedence and associativity</h4>
+<p>The grammar above is not immediately suitable for encoding as a parser. The <code>expression</code> non-terminal is ambiguous since it makes no allowance for precedence and associativity of the operators. You should rewrite that grammar production to implement the precedence and associativity rules described in the following table. This lists operators in order of precedence from highest (most binding) to lowest (least binding):</p>
+<table>
+<colgroup>
+<col style="width: 39%"></col>
+<col style="width: 31%"></col>
+<col style="width: 12%"></col>
+<col style="width: 17%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operators</th>
+<th>Description</th>
+<th style="text-align: right;">Precedence</th>
+<th style="text-align: center;">Associativity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>function call, variable, parenthesised expression, <code>TRUE</code>, <code>FALSE</code>, and integer / character / string constants</td>
+<td>primary expression</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr class="even">
+<td>binary <code>!</code> and <code>%</code></td>
+<td>vector expression</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="odd">
+<td>unary <code>!</code>, <code>%</code> and <code>@</code></td>
+<td>address expression</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr class="even">
+<td>binary <code>*</code>, <code>/</code> and <code>MOD</code></td>
+<td>multiplicative expression</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="odd">
+<td>unary <code>+</code>, <code>-</code> and <code>ABS</code></td>
+<td>unary additive expression</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr class="even">
+<td>binary <code>+</code> and <code>-</code></td>
+<td>additive expression</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="odd">
+<td>binary <code>=</code>, <code>~=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> <code>&gt;=</code></td>
+<td>relational expression</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: center;">left (see note 1 below)</td>
+</tr>
+<tr class="even">
+<td>binary <code>&lt;&lt;</code> and <code>&gt;&gt;</code></td>
+<td>bit shifting expression</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="odd">
+<td>unary <code>NOT</code></td>
+<td>not expression</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr class="even">
+<td>binary <code>&amp;</code></td>
+<td>and expression</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="odd">
+<td>binary <code>❘</code></td>
+<td>or expression</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="even">
+<td>binary <code>EQV</code> and <code>XOR</code></td>
+<td>xor/eqv expression</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="odd">
+<td>ternary <code>X-&gt;Y,Z</code></td>
+<td>if expression</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">right (see note 2 below)</td>
+</tr>
+<tr class="even">
+<td><code>VALOF</code> and <code>TABLE</code> expressions</td>
+<td>top level expression</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note 1:</strong> In BCPL we can write expressions consisting of sequences of relations, for example <code>a &lt; b = c &gt;= d</code>. The BCPL parser converts such sequences into a sequence of individual relations separated by <strong>and</strong> (<code>&amp;</code>) operations. Here are some examples of this conversion:</p>
+<ul>
+<li><code>a &lt; b</code> converts to <code>a &lt; b</code></li>
+<li><code>a &lt; b = c</code> converts to <code>(a &lt; b) &amp; (b = c)</code></li>
+<li><code>a &lt; b = c &gt;= d</code> converts to <code>((a &lt; b) &amp; (b = c)) &amp; (c &gt;= d)</code></li>
+<li><code>a &lt; b = c &gt;= d ~= e</code> converts to <code>(((a &lt; b) &amp; (b = c)) &amp; (c &gt;= d)) &amp; (d ~= e)</code></li>
+</ul>
+<p><strong>Note 2:</strong> Right associativity of the ternary if expression implies, in particular, that expressions of the form <code>X -&gt; Y, Z -&gt; U, V</code> are parsed as <code>X -&gt; Y, (Z -&gt; U, V)</code>.</p>
+<h4 id="lexical-analysis">Lexical analysis</h4>
+<p>The <a href="http://www.cl.cam.ac.uk/users/mr/bcplman.pdf">BCPL Manual</a> specifies a few syntactic rules that are not presented in the grammar above:</p>
+<ul>
+<li><p>The following keywords / operation symbols may be used interchangeably:</p>
+<ul>
+<li><code>NOT</code> or <code>~</code> for the boolean / logical not operation,</li>
+<li><code>MOD</code> or <code>REM</code> for the arithmetic modulus / remainder operation,</li>
+<li><code>XOR</code> or <code>NEQV</code> for the boolean / logical exclusive or operation,</li>
+<li><code>{</code> or <code>$(</code> for the opening of a code block (these are called <em>section brackets</em> in BCPL jargon), and</li>
+<li><code>}</code> or <code>$)</code> for the closing of a code block.</li>
+</ul></li>
+<li><p>The keywords <code>DO</code> or <code>THEN</code> in test and iterated statements (see the productions for the non-terminals <code>testStmt</code> and <code>iteratedStmt</code>) may be omitted if they are followed by another keyword.</p></li>
+<li><p>Semicolons are used to separate successive declarations and statements (see the productions for the non-terminals <code>program</code> and <code>blockStmt</code>), but semicolons that occur at the end of a line may be omitted.</p></li>
+<li><p>The operators <code>+</code>, <code>-</code>, <code>!</code> and <code>%</code> may be used as unary <strong>or</strong> binary operations, but if they occur as the first non-whitespace character on a line they <strong>must</strong> be interpreted as unary operators.</p></li>
+</ul>
+<p>The good news is that you don’t need to worry about implementing these lexical rules, since they have already been implemented for you in the <code>LexicalAnalysis.scala</code> module, which provides:</p>
+<ol type="1">
+<li>Parsers for each of the weBCPL keywords (lines 344 - 395),</li>
+<li>Parsers for each of the weBCPL operator symbols (lines 210 - 275),</li>
+<li>Parsers for literal string (<code>stringConst</code>, line 162), character (<code>charConst</code>, line 166) and integer (<code>integerConst</code>, line 185) constants, and</li>
+<li>A parser for identifiers (<code>identifier</code>, line 197) used for variable and label names.</li>
+</ol>
+<p>When writing your weBCPL parser you should always use the parsers provided in the <code>LexicalAnalysis.scala</code> module to parse weBCPL keywords and operators. They will handle all of the fiddly extra lexical details discussed above, and allow you to concentrate solely on implementing the grammar given above.</p>
+<p><strong>Please note:</strong> the <code>LexicalAnalysis.scala</code> module provides two separate sets of parsers for parsing those operators that can be used unary or binary position:</p>
+<ul>
+<li><code>unaryMinus</code>, <code>unaryPlus</code>, <code>unaryPling</code> and <code>unaryPercent</code> for the unary variants of <code>-</code>, <code>+</code>, <code>!</code> and <code>%</code> (respectively), and</li>
+<li><code>minus</code>, <code>plus</code>, <code>pling</code> and <code>percent</code> for the binary variants of <code>-</code>, <code>+</code>, <code>!</code> and <code>%</code> (respectively).</li>
+</ul>
+<p>When writing your parsers you should be careful to use the correct versions of these parsers when implementing your parsers for levels 8, 9, 11, and 12 in the precedence table above.</p>
+<hr />
+<p><a href="http://orcid.org/0000-0002-4137-6982">Dominic Verity</a><br />
+Last modified: 17 September 2019<br />
+<a href="http://mozilla.org/MPL/2.0/">Copyright (c) 2019 by Dominic Verity and Anthony Sloane. Macquarie University. All rights reserved.</a></p>
+</body>
+</html>
